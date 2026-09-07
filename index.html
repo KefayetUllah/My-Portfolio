@@ -1562,18 +1562,18 @@ Get Started
 
     /* ---------- Social proof toast: rotates every few seconds ---------- */
     const TOAST_AVATARS = [
-      'https://images.pexels.com/photos/6497114/pexels-photo-6497114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      'https://images.pexels.com/photos/1546912/pexels-photo-1546912.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      'https://images.pexels.com/photos/5649997/pexels-photo-5649997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      'https://images.pexels.com/photos/33815738/pexels-photo-33815738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+      'https://images.pexels.com/users/avatars/796614740/volkan-yilmaz-985.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2',
+      'https://images.pexels.com/users/avatars/349383308/james-906.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2',
+      'https://images.pexels.com/users/avatars/447505/diana-578.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2',
+      'https://images.pexels.com/users/avatars/2163573768/muhammad-amdad-hossain-453.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2', 'https://images.pexels.com/users/avatars/2018605242/lada-bilozor-393.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2', 'https://images.pexels.com/users/avatars/719873/boyan-minchev-169.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2'
     ];
     const TOAST_MSGS = [
-      { name: 'Sarah M.',  action: 'just visited the website' },
-      { name: 'David K.',  action: 'just booked a 15-min call' },
-      { name: 'Ana R.',    action: 'just viewed the pricing plans' },
-      { name: 'Marcus T.', action: 'just left a 5-star review' },
-      { name: 'Elena P.',  action: 'just downloaded the media kit' },
-      { name: 'James C.',  action: 'just visited the website' }
+      { name: 'Volkan Y.',  action: 'just visited the website' },
+      { name: 'James.',  action: 'just booked a 15-min call' },
+      { name: 'Diana',    action: 'just viewed the pricing plans' },
+      { name: 'Muhammad A.', action: 'just left a 5-star review' },
+      { name: 'Lada Bilozor',  action: 'just downloaded the media kit' },
+      { name: 'BoyanMinchev',  action: 'just visited the website' }
     ];
     const toast = document.getElementById('toast');
     const toastText = document.getElementById('toastText');
@@ -1586,7 +1586,7 @@ Get Started
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 4200);   /* visible ~4s */
       toastIndex++;
-      setTimeout(cycleToast, 7000 + Math.random() * 4000);      /* gap 7–11s */
+      setTimeout(cycleToast, 15000 + Math.random() * 4000);      /* gap 15–19s */
     };
     setTimeout(cycleToast, 3500);   /* first appear shortly after page load */
   </script>
