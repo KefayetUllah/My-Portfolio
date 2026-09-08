@@ -1,1017 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kefayet Ullah Arif — Digital Marketing Specialist</title>
-<meta name="description" content="Kefayet Ullah Arif — Freelance digital marketer helping brands grow with social media, SEO, paid ads and analytics." />
-
-<!-- ================================================================
-     QUICK CUSTOMIZE GUIDE (Find & Replace these exact placeholders)
-     ----------------------------------------------------------------
-     [YOUR NAME]        → your full name
-     [YOUR FIRST NAME]  → first name only (About section)
-     [YOUR CITY]        → your city / location
-     [YOUR EMAIL]       → your email address
-     [YOUR PHONE]       → your phone number
-     [YOURDOMAIN]       → your domain (footer copyright line)
-     Photos: search for "REPLACE PHOTO" comments (hero, about, logo)
-     Colors: edit the CSS variables inside :root (e.g. --red-accent)
-     ================================================================ -->
-
-<!-- Small favicon (inline SVG data URI — replace with your own if you like) -->
-<link rel="icon" type="image/png" href="assets/Profile.jpeg">
-
-<!-- Google Fonts: Space Grotesk (headlines) + Inter (body) -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-<!-- ================= ALL CSS (edit variables in :root to re-theme) ================= -->
-<style>
-  /* ---------- Theme variables ---------- */
-  :root {
-    --red-accent: #FF1E1E;                       /* main accent (buttons, glows, dots) */
-    --red-deep: #C90000;                         /* darker red for gradients */
-    --red-glow: rgba(255, 30, 30, 0.35);         /* glow / shadow color */
-    --red-soft: rgba(255, 30, 30, 0.12);         /* soft red tint for chips */
-    --bg-black: #000000;                         /* page background */
-    --bg-near: #070709;                          /* near-black alt background */
-    --bg-card: #0D0E11;                          /* card background */
-    --bg-glass: rgba(13, 13, 16, 0.72);          /* glassmorphism panels */
-    --text-white: #F4F4F6;                       /* primary text */
-    --text-muted: #9CA0AB;                       /* secondary text */
-    --text-faint: #5F636D;                       /* tertiary text */
-    --border: rgba(255, 255, 255, 0.08);         /* hairline borders */
-    --border-strong: rgba(255, 255, 255, 0.14);  /* hover borders */
-    --green: #2ECC71;                            /* "available" status dot */
-    --amber: #FFB020;                            /* testimonial stars */
-    --radius-card: 26px;                         /* big rounded cards */
-    --font-head: 'Space Grotesk', system-ui, sans-serif;
-    --font-body: 'Inter', system-ui, sans-serif;
-  }
-
-  /* ---------- Reset + base ---------- */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 120px; }
-  body {
-    background: var(--bg-black);
-    color: var(--text-white);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
-  a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
-  ul { list-style: none; }
-  ::selection { background: var(--red-accent); color: #fff; }
-
-  /* Red scrollbar to match theme */
-  ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-track { background: var(--bg-black); }
-  ::-webkit-scrollbar-thumb { background: #2a2b2f; border-radius: 8px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--red-accent); }
-
-  /* Accessibility: visible focus ring */
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--red-accent); outline-offset: 3px; border-radius: 8px; }
-
-  /* ---------- Decorative layers ---------- */
-  .noise {                    /* subtle film grain over everything */
-    position: fixed; inset: 0; z-index: 3; pointer-events: none; opacity: .05;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-  }
-  .ambient {                  /* faint red spotlight at the very top of the page */
-    position: fixed; top: -30vh; left: 50%; transform: translateX(-50%);
-    width: 90vw; height: 70vh; z-index: 0; pointer-events: none;
-    background: radial-gradient(ellipse at center, var(--red-soft), transparent 65%);
-    filter: blur(40px); opacity: .6;
-  }
-  .halo {                     /* red glow blob — place behind cards/photos */
-    position: absolute; border-radius: 50%; z-index: 0; pointer-events: none;
-    background: radial-gradient(circle, var(--red-glow), transparent 65%);
-    filter: blur(60px);
-  }
-
-  /* Thin red reading-progress bar (top of viewport) */
-  .progress {
-    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-    background: linear-gradient(90deg, var(--red-deep), var(--red-accent));
-    box-shadow: 0 0 16px var(--red-glow); z-index: 200;
-  }
-
-  /* ---------- Layout helpers ---------- */
-  .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; position: relative; z-index: 2; }
-  .section { padding-block: clamp(90px, 12vw, 150px); position: relative; }
-  .section-head { max-width: 680px; margin: 0 auto clamp(48px, 7vw, 72px); text-align: center; }
-  .section-head.left { margin-inline: 0; text-align: left; }
-
-  /* Pill "tag" label above each section heading */
-  .tag {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: 8px 18px; border-radius: 999px; margin-bottom: 22px;
-    background: var(--red-soft); border: 1px solid rgba(255, 30, 30, 0.28);
-    color: #FF7A7A; font: 600 12px/1 var(--font-head);
-    letter-spacing: 0.22em; text-transform: uppercase;
-  }
-  .tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--red-accent); box-shadow: 0 0 10px var(--red-accent); }
-
-  .section-head h2 { font-size: clamp(2rem, 5vw, 3.3rem); margin-bottom: 18px; }
-  .section-head h2 em, .accent { font-style: normal; color: var(--red-accent); text-shadow: 0 0 30px var(--red-glow); }
-  .section-head p { color: var(--text-muted); font-size: 1.06rem; max-width: 560px; margin-inline: auto; }
-  .section-head.left p { margin-inline: 0; }
-
-  /* ---------- Buttons ---------- */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 15px 32px; border-radius: 999px; border: 1px solid transparent;
-    font: 600 15px/1 var(--font-head); letter-spacing: 0.01em; cursor: pointer;
-    transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, background .35s, border-color .35s;
-  }
-  .btn .lucide { width: 18px; height: 18px; }
-  .btn-red {
-    background: linear-gradient(135deg, var(--red-accent), var(--red-deep)); color: #fff;
-    box-shadow: 0 10px 44px -10px var(--red-glow), inset 0 1px 0 rgba(255,255,255,.25);
-  }
-  .btn-red:hover { transform: translateY(-3px); box-shadow: 0 18px 60px -12px var(--red-glow), inset 0 1px 0 rgba(255,255,255,.25); }
-  .btn-ghost { background: rgba(255,255,255,.03); border-color: var(--border-strong); color: var(--text-white); }
-  .btn-ghost:hover { border-color: rgba(255,30,30,.5); transform: translateY(-3px); box-shadow: 0 14px 44px -18px var(--red-glow); }
-
-
-  /* =============================================================
-     NAVBAR (sticky glassmorphism)
-     ============================================================= */
-     @media (max-width:680px){
-
-  .site-nav {
-
-    width: calc(100% - 24px);
-    top: 10px;
-
-    padding: 8px 10px;
-
-    border-radius: 30px;
-
-  }
-
-
-  .nav-logo {
-
-    gap: 8px;
-
-  }
-
-
-  .nav-logo img {
-
-    width: 34px;
-    height: 34px;
-
-  }
-
-
-  .nav-logo span {
-
-    font-size: 14px;
-
-  }
-
-
-  .nav-burger {
-
-    width: 38px;
-    height: 38px;
-
-  }
-
-
-  .nav-burger .lucide {
-
-    width: 18px;
-    height: 18px;
-
-  }
-
-
-}
-
-
-  .site-nav {
-    position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
-    width: min(1160px, calc(100% - 32px)); z-index: 100;
-    background: var(--bg-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border); border-radius: 999px;
-    padding: 10px 14px 10px 12px;
-    transition: box-shadow .4s, background .4s, border-color .4s;
-  }
-  .site-nav.scrolled { background: rgba(8, 8, 10, 0.9); border-color: var(--border-strong); box-shadow: 0 20px 60px -20px rgba(0,0,0,.9); }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-
-  /* Logo: round photo + name (REPLACE PHOTO below) */
-  .nav-logo { display: flex; align-items: center; gap: 12px; }
-  .nav-logo img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,30,30,.55); box-shadow: 0 0 18px var(--red-glow); }
-  .nav-logo span { font: 700 17px var(--font-head); letter-spacing: -0.01em; white-space: nowrap; }
-  .nav-logo span b { color: var(--red-accent); }
-
-  /* Center links with red dot indicator */
-  .nav-links { display: flex; align-items: center; gap: 6px; }
-  .nav-link {
-    position: relative; padding: 10px 16px; border-radius: 999px;
-    font: 500 14px var(--font-head); color: var(--text-muted);
-    transition: color .3s, background .3s;
-  }
-  .nav-link:hover { color: var(--text-white); background: rgba(255,255,255,.05); }
-  .nav-link::after {
-    content: ""; position: absolute; left: 50%; bottom: 2px; transform: translateX(-50%) scale(0);
-    width: 5px; height: 5px; border-radius: 50%; background: var(--red-accent);
-    box-shadow: 0 0 8px var(--red-accent); transition: transform .3s;
-  }
-  .nav-link.active { color: var(--text-white); }
-  .nav-link.active::after { transform: translateX(-50%) scale(1); }
-
-  .nav-actions { display: flex; align-items: center; gap: 12px; }
-  .btn-nav { padding: 12px 26px; font-size: 14px; }
-
-  /* Hamburger (mobile only) */
-  .nav-burger {
-    display: none; align-items: center; justify-content: center;
-    width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
-    background: rgba(255,255,255,.05); border: 1px solid var(--border); color: var(--text-white);
-  }
-  .nav-burger .lucide { width: 20px; height: 20px; }
-  .nav-burger .icon-close { display: none; }
-  .nav-burger.open .icon-close { display: block; }
-  .nav-burger.open .icon-open { display: none; }
-
-  /* Full-screen mobile menu */
-  .mobile-menu {
-    position: fixed; inset: 0; z-index: 90; padding: 130px 32px 48px;
-    background: rgba(5,5,7,.94); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-    display: flex; flex-direction: column; gap: 8px;
-    opacity: 0; visibility: hidden; transform: translateY(-12px);
-    transition: opacity .4s ease, transform .4s ease, visibility .4s;
-  }
-  .mobile-menu.open { opacity: 1; visibility: visible; transform: none; }
-  .mobile-link {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 10px; border-bottom: 1px solid var(--border);
-    font: 600 26px var(--font-head); color: var(--text-white); transition: color .3s, padding-left .3s;
-  }
-  .mobile-link .lucide { width: 20px; height: 20px; color: var(--red-accent); }
-  .mobile-link:hover, .mobile-link.active { color: var(--red-accent); padding-left: 16px; }
-  .mobile-menu .btn { margin-top: auto; }
-.mobile-menu .btn {
-    margin-top: auto;
-}
-  /* =============================================================
-     HERO SECTION
-     ============================================================= */
-
-     
-  .hero { padding: clamp(150px, 18vh, 200px) 0 clamp(70px, 9vw, 110px); position: relative; overflow: hidden; }
-  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 9px 20px; border-radius: 999px; margin-bottom: 26px;
-    background: rgba(255,255,255,.04); border: 1px solid var(--border);
-    font: 500 13.5px var(--font-head); color: var(--text-muted);
-  }
-  .dot { position: relative; width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
-  .dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; background: var(--green); opacity: .35; animation: ping 1.8s ease-out infinite; }
-  @keyframes ping { 0% { transform: scale(.6); opacity: .5; } 100% { transform: scale(2); opacity: 0; } }
-
-  .hero h1 { font-size: clamp(2.7rem, 6.2vw, 4.9rem); margin-bottom: 24px; }
-  .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 520px; margin-bottom: 38px; }
-  .hero-sub strong { color: var(--text-white); font-weight: 600; }
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 42px; }
-
-  /* Little "trusted by" avatar stack under the CTAs */
-  .hero-trust { display: flex; align-items: center; gap: 14px; }
-  .avatar-stack { display: flex; }
-  .avatar-stack img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg-black); margin-left: -10px; }
-  .avatar-stack img:first-child { margin-left: 0; }
-  .hero-trust p { font-size: 13.5px; color: var(--text-muted); line-height: 1.45; }
-  .hero-trust p b { color: var(--text-white); }
-
-  /* Hero photo card on the right */
-  .hero-visual { position: relative; }
-  .hero-visual .halo { width: 120%; height: 80%; top: -10%; left: 10%; }
-  .hero-photo {
-    position: relative; border-radius: var(--radius-card); overflow: hidden;
-    border: 1px solid var(--border-strong); aspect-ratio: 4 / 5;
-    box-shadow: 0 40px 100px -30px rgba(0,0,0,.9), 0 0 90px -20px var(--red-glow);
-  }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-photo::after {    /* red-tinted vignette over the photo */
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(255,30,30,.06), transparent 35%, rgba(0,0,0,.45));
-  }
-
-  /* Floating glass chips over the photo */
-  .chip {
-    position: absolute; z-index: 2; display: flex; align-items: center; gap: 12px;
-    padding: 13px 18px; border-radius: 16px;
-    background: rgba(12,12,15,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border: 1px solid var(--border-strong);
-    font: 600 13px/1.3 var(--font-head); animation: float 6s ease-in-out infinite;
-  }
-  .chip small { display: block; font: 500 11px/1.3 var(--font-body); color: var(--text-muted); }
-  .chip .lucide { width: 28px; height: 28px; padding: 6px; border-radius: 9px; color: var(--red-accent); background: var(--red-soft); }
-  .chip-top { top: 26px; right: -14px; }
-  .chip-bottom { bottom: 30px; left: -18px; animation-delay: -3s; }
-  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-  /* =============================================================
-   STATS BAR (under hero)
-   ============================================================= */
-
-.stats-bar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    border: 1px solid var(--border);
-    border-radius: 16px; /* Rectangle rounded corner */
-
-    background: var(--bg-card);
-    padding: 22px 40px;
-
-    overflow: hidden;
-}
-
-
-/* Each stat section */
-.stat-item {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 16px;
-    text-align: left;
-}
-
-
-/* Divider between sections */
-.stat-item + .stat-item {
-    border-left: 1px solid var(--border);
-    padding-left: 40px;
-}
-
-
-/* Icon box */
-.stat-item .lucide {
-    width: 44px;
-    height: 44px;
-
-    padding: 11px;
-
-    border-radius: 14px;
-
-    color: var(--red-accent);
-    background: var(--red-soft);
-
-    flex-shrink: 0;
-}
-
-
-/* Small heading */
-.stat-item small {
-    display: block;
-
-    font-size: 12px;
-
-    color: var(--text-faint);
-
-    letter-spacing: .08em;
-
-    text-transform: uppercase;
-}
-
-
-/* Main text */
-.stat-item strong {
-    font: 600 15.5px var(--font-head);
-}
-
-
-/* Mobile Responsive */
-@media(max-width:768px){
-
-    .stats-bar {
-        flex-direction: column;
-
-        gap: 20px;
-
-        padding: 25px;
-    }
-
-
-    .stat-item {
-        width: 100%;
-
-        justify-content: flex-start;
-    }
-
-
-    .stat-item + .stat-item {
-
-        border-left: none;
-
-        border-top: 1px solid var(--border);
-
-        padding-left: 0;
-
-        padding-top: 20px;
-    }
-}
-
-  /* =============================================================
-     SERVICES SECTION
-     ============================================================= */
-  .services { background: var(--bg-near); }
-  .services .halo { width: 700px; height: 700px; top: -200px; right: -200px; opacity: .5; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-
-  .card {
-    position: relative; background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: var(--radius-card); padding: 34px 28px; overflow: hidden;
-    transition: transform .45s cubic-bezier(.22,1,.36,1), border-color .45s, box-shadow .45s;
-  }
-  .card::before {          /* red spotlight that appears on hover */
-    content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .45s; border-radius: inherit;
-    background: radial-gradient(600px 200px at 50% -10%, var(--red-soft), transparent 70%);
-  }
-  .card:hover { transform: translateY(-8px); border-color: rgba(255,30,30,.35); box-shadow: 0 30px 70px -30px var(--red-glow); }
-  .card:hover::before { opacity: 1; }
-
-  .icon-hex {
-    display: inline-flex; width: 58px; height: 58px; margin-bottom: 22px;
-    align-items: center; justify-content: center; border-radius: 18px;
-    background: linear-gradient(145deg, var(--red-soft), rgba(255,30,30,.04));
-    border: 1px solid rgba(255,30,30,.3); color: var(--red-accent);
-  }
-  .icon-hex .lucide { width: 26px; height: 26px; }
-  .card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .card p { color: var(--text-muted); font-size: .94rem; margin-bottom: 22px; }
- .card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font: 600 13px var(--font-head);
-    color: var(--red-accent);
-    letter-spacing: .04em;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-    z-index: 20;
-    pointer-events: auto;
-    cursor: pointer;
-    color: var(--red-accent);
-    text-decoration: none;
-}
-
-.card-link .lucide {
-    width: 15px;
-    height: 15px;
-    transition: transform .3s;
-}
-
-  /* =============================================================
-     PROCESS SECTION
-     ============================================================= */
-  .process .halo { width: 600px; height: 600px; bottom: -220px; left: -200px; opacity: .45; }
-  .step-card { position: relative; }
-  .step-card .step-num {
-    font: 700 2.8rem/1 var(--font-head); letter-spacing: -0.05em;
-    color: transparent; -webkit-text-stroke: 1.5px rgba(255, 30, 30, 0.4);
-    margin-bottom: 20px; transition: -webkit-text-stroke .4s;
-  }
-  .step-card:hover .step-num { -webkit-text-stroke: 1.5px var(--red-accent); text-shadow: 0 0 30px var(--red-glow); }
-  .step-card .icon-hex { width: 50px; height: 50px; border-radius: 15px; margin-bottom: 18px; }
-  .step-card .icon-hex .lucide { width: 22px; height: 22px; }
-  .process-cta { text-align: center; margin-top: clamp(48px, 7vw, 72px); }
-  .process-cta p { color: var(--text-muted); font-size: .95rem; margin-top: 16px; }
-  .process-cta p .lucide { width: 14px; height: 14px; vertical-align: -2px; color: var(--red-accent); }
-
-  /* =============================================================
-     ABOUT SECTION
-     ============================================================= */
-  .about { background: var(--bg-near); }
-  .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
-  .about-visual { position: relative; }
-  .about-visual .halo { width: 110%; height: 90%; top: 5%; left: -5%; }
-  .about-photo { position: relative; border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border-strong); aspect-ratio: 4/5; }
-  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(200deg, rgba(255,30,30,.08), transparent 40%, rgba(0,0,0,.35)); }
-  .exp-chip {
-    position: absolute; bottom: 24px; right: 24px; z-index: 2;
-    padding: 16px 22px; border-radius: 18px; text-align: center;
-    background: rgba(12,12,15,.85); backdrop-filter: blur(14px); border: 1px solid var(--border-strong);
-  }
-  .exp-chip b { display: block; font: 700 1.9rem/1.1 var(--font-head); color: var(--red-accent); text-shadow: 0 0 24px var(--red-glow); }
-  .exp-chip small { font-size: 12px; color: var(--text-muted); letter-spacing: .05em; }
-
-  .about-copy p { color: var(--text-muted); margin-bottom: 18px; }
-  .about-copy p strong { color: var(--text-white); font-weight: 600; }
-  .about-socials { display: flex; gap: 12px; margin: 28px 0 34px; }
-  .social-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 46px; height: 46px; border-radius: 50%;
-    background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--text-muted);
-    transition: all .35s;
-  }
-  .social-btn .lucide { width: 18px; height: 18px; }
-  .social-btn:hover { color: #fff; border-color: rgba(255,30,30,.5); background: var(--red-soft); transform: translateY(-4px); box-shadow: 0 12px 30px -10px var(--red-glow); }
-  .about-cta { display: flex; flex-wrap: wrap; gap: 16px; }
-
-/* =============================================================
-   NUMBERS / COUNTERS SECTION
-   ============================================================= */
-
-.counters {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    align-items: stretch;
-}
-
-.counter {
-    text-align: center;
-    padding: 40px 20px;
-    border-radius: var(--radius-card);
-    border: 1px solid var(--border);
-    background: var(--bg-card);
-    position: relative;
-    overflow: hidden;
-}
-
-
-.counter b {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 5px;
-
-    font-family: var(--font-head);
-    font-size: 70px;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--text-white);
-}
-
-
-.count-num {
-    font-size: inherit;
-}
-
-
-.counter .plus {
-    color: var(--red-accent);
-    font-size: 35px;
-}
-
-
-.counter > span {
-    display: block;
-    margin-top: 15px;
-    font: 500 20px var(--font-head);
-    color: var(--text-muted);
-}
-
-
-/* Mobile */
-@media(max-width:768px){
-
-    .counters {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-  /* =============================================================
-     PRICING SECTION
-     ============================================================= */
-  .pricing { background: var(--bg-near); }
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
-  .price-card { display: flex; flex-direction: column; overflow: visible; }
-  .price-card.featured { border-color: rgba(255,30,30,.55); background: linear-gradient(180deg, rgba(255,30,30,.08), var(--bg-card) 45%); box-shadow: 0 30px 80px -30px var(--red-glow); }
-  .popular-badge {
-    position: absolute; top: -13px; left: 50%; transform: translateX(-50%); z-index: 2;
-    padding: 7px 18px; border-radius: 999px; white-space: nowrap;
-    background: linear-gradient(135deg, var(--red-accent), var(--red-deep));
-    font: 700 11px var(--font-head); letter-spacing: .14em; text-transform: uppercase;
-    box-shadow: 0 8px 30px -6px var(--red-glow);
-  }
-  .price-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
-  .price-card .for { color: var(--text-faint); font-size: .88rem; margin-bottom: 24px; }
-  .price { display: block; margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-  .price small { display: block; color: var(--text-muted); font-size: .85rem; margin-bottom: 6px; }
-  .price-line { display: flex; align-items: baseline; gap: 8px; }
-  .price b { font: 700 2.8rem/1 var(--font-head); letter-spacing: -0.03em; }
-  .price b .cur { color: var(--red-accent); font-size: 1.7rem; margin-right: 1px; }
-  .price em { font-style: normal; color: var(--text-muted); font-size: .9rem; }
-  .price-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
-  .price-list li { display: flex; gap: 12px; align-items: flex-start; font-size: .92rem; color: var(--text-muted); }
-  .price-list .lucide { width: 18px; height: 18px; padding: 3px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; color: var(--red-accent); background: var(--red-soft); }
-  .price-card .btn { margin-top: auto; width: 100%; }
-  .pricing-note { text-align: center; margin-top: 36px; color: var(--text-faint); font-size: .9rem; }
-  .pricing-note .lucide { width: 15px; height: 15px; vertical-align: -3px; color: var(--red-accent); }
-
-  .price-card .btn {
-    position: relative;
-    z-index: 10;
-    pointer-events: auto;
-    cursor: pointer;
-}
-
-  .ambient,
-.noise {
-    pointer-events: none;
-}
-
-  /* =============================================================
-     TESTIMONIALS SECTION
-     ============================================================= */
-  .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-  .review-card { display: flex; flex-direction: column; gap: 18px; }
-  .stars { display: flex; gap: 4px; }
-  .stars .lucide { width: 15px; height: 15px; color: var(--amber); fill: var(--amber); }
-  .review-card blockquote { color: var(--text-muted); font-size: .98rem; font-style: italic; }
-  .reviewer { display: flex; align-items: center; gap: 14px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
-  .reviewer img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,30,30,.4); }
-  .reviewer b { display: block; font: 600 15px var(--font-head); }
-  .reviewer small { color: var(--text-faint); font-size: 12.5px; }
-  .extra-review { display: none !important; }           /* hidden until "View More" */
-  .testimonial-grid.show-all .extra-review { display: flex !important; animation: fadeUp .6s ease both; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-  .reviews-more { text-align: center; margin-top: 44px; }
-
-  /* =============================================================
-     FOOTER
-     ============================================================= */
-  footer { border-top: 1px solid var(--border); background: var(--bg-near); padding: clamp(60px, 8vw, 90px) 0 0; position: relative; overflow: hidden; }
-  footer .halo { width: 800px; height: 400px; top: -200px; left: 50%; transform: translateX(-50%); opacity: .35; }
-  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr 1fr; gap: 44px; padding-bottom: 56px; }
-  .footer-brand p { color: var(--text-muted); font-size: .92rem; margin-top: 18px; max-width: 300px; }
-  .footer-col h4 { font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 22px; font-weight: 600; }
-  .footer-col li { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; color: var(--text-muted); font-size: .94rem; }
-  .footer-col li .lucide { width: 16px; height: 16px; color: var(--red-accent); flex-shrink: 0; }
-  .footer-col a { transition: color .3s; }
-  .footer-col a:hover { color: var(--red-accent); }
-  .pay-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .pay-chip { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); background: rgba(255,255,255,.03); font: 600 12px var(--font-head); color: var(--text-muted); }
-  .pay-chip .lucide { width: 14px; height: 14px; color: var(--red-accent); }
-  .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 26px 0; border-top: 1px solid var(--border); color: var(--text-faint); font-size: .85rem; flex-wrap: wrap; }
-  .to-top { display: inline-flex; align-items: center; gap: 8px; font: 600 13px var(--font-head); color: var(--text-muted); transition: color .3s; }
-  .to-top .lucide { width: 15px; height: 15px; color: var(--red-accent); }
-  .to-top:hover { color: var(--text-white); }
-
-  /* =============================================================
-   SOCIAL PROOF TOAST (bottom-left, auto-rotating)
-   ============================================================= */
-
-.toast {
-    position: fixed;
-    left: 24px;
-    bottom: 24px;
-    z-index: 120;
-
-    display: flex;
-    align-items: center;
-    gap: 14px;
-
-    max-width: 340px;
-
-    padding: 14px 20px 14px 14px;
-    border-radius: 18px;
-
-    background: rgba(13,13,16,.9);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    border: 1px solid var(--border-strong);
-
-    box-shadow:
-    0 30px 70px -20px rgba(0,0,0,.9),
-    0 0 40px -18px var(--red-glow);
-
-    opacity: 0;
-    transform: translateY(24px) scale(.96);
-
-    pointer-events: none;
-
-    transition:
-    opacity .5s cubic-bezier(.22,1,.36,1),
-    transform .5s cubic-bezier(.22,1,.36,1);
-}
-
-
-.toast.show {
-    opacity: 1;
-    transform: none;
-}
-
-
-.toast img {
-    width: 44px;
-    height: 44px;
-
-    border-radius: 50%;
-    object-fit: cover;
-
-    border: 2px solid rgba(255,30,30,.45);
-
-    flex-shrink: 0;
-}
-
-
-.toast p {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.45;
-}
-
-
-.toast p b {
-    color: var(--text-white);
-}
-
-
-.toast small {
-    font-size: 11px;
-    color: var(--green);
-
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-
-.toast small::before {
-
-    content: "";
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow: 0 0 8px var(--green);
-}
-
-
-
-.toast .eye {
-
-    position: absolute;
-
-    top: -9px;
-    right: -9px;
-
-    width: 26px;
-    height: 26px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-    linear-gradient(135deg,var(--red-accent),var(--red-deep));
-
-    box-shadow:
-    0 6px 20px -4px var(--red-glow);
-}
-
-
-.toast .eye .lucide {
-
-    width: 13px;
-    height: 13px;
-
-    color: #fff;
-}
-
-
-
-/* =============================================================
-   MOBILE TOAST RESPONSIVE
-   ============================================================= */
-
-@media(max-width:680px){
-
-    .toast {
-
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-
-        max-width: none;
-        width: auto;
-
-        padding: 8px 12px 8px 8px;
-
-        gap: 8px;
-
-        border-radius: 14px;
-
-    }
-
-
-    .toast img {
-
-        width: 32px;
-        height: 32px;
-
-    }
-
-
-    .toast p {
-
-        font-size: 11px;
-
-        line-height: 1.2;
-
-    }
-
-
-    .toast small {
-
-        font-size: 9px;
-
-    }
-
-
-    .toast .eye {
-
-        width: 20px;
-        height: 20px;
-
-        top: -7px;
-        right: -7px;
-
-    }
-
-
-    .toast .eye .lucide {
-
-        width: 10px;
-        height: 10px;
-
-    }
-
-}
-
-  /* =============================================================
-     SCROLL-REVEAL SYSTEM (Intersection Observer adds .is-visible)
-     ============================================================= */
-  .reveal { opacity: 0; transform: translateY(34px); transition: opacity .9s ease var(--d, 0s), transform .9s cubic-bezier(.22,1,.36,1) var(--d, 0s); will-change: opacity, transform; }
-  .reveal.is-visible { opacity: 1; transform: none; }
-
-  /* =============================================================
-     RESPONSIVE
-     ============================================================= */
-  @media (max-width: 1080px) {
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 940px) {
-    html { scroll-padding-top: 96px; }
-    .nav-links, .nav-actions .btn-nav { display: none; }   /* collapse to burger */
-    .nav-burger { display: flex; }
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero { padding-top: 140px; }
-    .hero-visual { max-width: 460px; margin-inline: auto; width: 100%; }
-    .chip-top { right: 8px; } .chip-bottom { left: 8px; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-visual { max-width: 460px; margin-inline: auto; width: 100%; }
-    .section-head.left { text-align: left; }
-  }
-  @media (max-width: 680px) {
-    .container { width: calc(100% - 36px); }
-    .stats-bar { flex-direction: column; align-items: stretch; border-radius: 28px; padding: 26px 30px; gap: 22px; }
-    .stat-item { justify-content: flex-start; }
-    .stat-item + .stat-item { border-left: 0; border-top: 1px solid var(--border); padding: 22px 0 0; }
-    .grid-4, .pricing-grid, .testimonial-grid { grid-template-columns: 1fr; }
-    .counters { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .counter { padding: 28px 12px; }
-    .hero-cta .btn { flex: 1; }
-    .toast { left: 14px; right: 14px; bottom: 14px; max-width: none; }
-    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-    .footer-bottom { justify-content: center; text-align: center; }
-    .site-nav { top: 12px; }
-  }
-
-  /* Reduced motion: honor user preference */
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    .reveal { opacity: 1; transform: none; }
-  }
-
-  html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-
-.ambient,
-.noise {
-    pointer-events: none;
-    max-width:100vw;
-}
-
-
-img {
-    max-width:100%;
-    height:auto;
-}
-
-
-@media(max-width:680px){
-
-    .ambient {
-        width:350px;
-        height:350px;
-        right:-150px;
-    }
-
-
-    .halo {
-        width:250px;
-        height:250px;
-    }
-
-
-    .hero,
-    .services,
-    .section {
-        overflow:hidden;
-    }
-
-}
-
-@media(max-width:680px){
-
-  .toast {
-    left: 10px;
-    right: 10px;
-    bottom: 12px;
-    max-width: none;
-    width: auto;
-  }
-
-}
-
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kefayet Ullah Arif — Digital Marketing Specialist</title>
+  <meta name="description" content="Kefayet Ullah Arif — Freelance digital marketer helping brands grow with social media, SEO, paid ads and analytics." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Profile.jpeg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/8801636007533" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <!-- Decorative layers -->
   <div class="progress" id="progressBar" aria-hidden="true"></div>
   <div class="ambient" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-<script>
-    lucide.createIcons();
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- ==================== NAVBAR ==================== -->
   <header class="site-nav" id="siteNav">
     <nav class="nav-inner" aria-label="Main navigation">
-      <!-- Logo: photo + name — REPLACE PHOTO with your own headshot URL -->
       <a href="#home" class="nav-logo">
         <img src="assets/Profile.jpeg" alt="Kefayet Ullah Arif" />
         <span>Kefayet Ullah Arif<b>.</b></span>
       </a>
-      <!-- Center links -->
+
       <ul class="nav-links">
         <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#process" class="nav-link">Process</a></li>
+
+        <!-- Services Dropdown -->
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link" id="servicesToggle">
+            Services <i data-lucide="chevron-down" class="dropdown-icon"></i>
+          </a>
+          <div class="nav-dropdown-content" id="servicesDropdown">
+            <a href="#services" class="dropdown-item">
+              <i data-lucide="megaphone"></i> Social Media Marketing
+            </a>
+            <a href="#services" class="dropdown-item">
+              <i data-lucide="search"></i> SEO &amp; Content
+            </a>
+            <a href="#services" class="dropdown-item">
+              <i data-lucide="mouse-pointer-click"></i> Paid Ads
+            </a>
+            <a href="#services" class="dropdown-item">
+              <i data-lucide="chart-column"></i> Analytics &amp; Reporting
+            </a>
+          </div>
+        </li>
+
         <li><a href="#pricing" class="nav-link">Pricing</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link" id="resourcesToggle">
+            Resources <i data-lucide="chevron-down" class="dropdown-icon"></i>
+          </a>
+          <div class="nav-dropdown-content" id="resourcesDropdown">
+            <a href="blog.html" class="dropdown-item">
+              <i data-lucide="pen-line"></i> Blog
+            </a>
+            <a href="#case-studies" class="dropdown-item">
+              <i data-lucide="briefcase"></i> Case Studies
+            </a>
+            <a href="#video" class="dropdown-item">
+              <i data-lucide="video"></i> Videos
+            </a>
+          </div>
+        </li>
+
         <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
       </ul>
-      <!-- Right actions: contact CTA + mobile burger -->
+
       <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i data-lucide="moon" class="theme-icon"></i>
+        </button>
+
         <a href="https://wa.me/8801636007533" target="_blank" class="btn btn-red btn-nav">Contact Me</a>
         <button class="nav-burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
           <i data-lucide="menu" class="icon-open"></i>
@@ -1021,35 +107,68 @@ img {
     </nav>
   </header>
 
-  <!-- Mobile slide-over menu -->
+  <!-- ==================== MOBILE MENU ==================== -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#home" class="mobile-link">Home <i data-lucide="arrow-up-right"></i></a>
-    <a href="#services" class="mobile-link">Services <i data-lucide="arrow-up-right"></i></a>
-    <a href="#process" class="mobile-link">Process <i data-lucide="arrow-up-right"></i></a>
-    <a href="#about" class="mobile-link">About <i data-lucide="arrow-up-right"></i></a>
+
+    <!-- Mobile Services Dropdown -->
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-toggle" id="mobileServicesToggle">
+        Services <i data-lucide="chevron-down"></i>
+      </div>
+      <div class="mobile-dropdown-content" id="mobileServicesContent">
+        <a href="#services"><i data-lucide="megaphone"></i> Social Media Marketing</a>
+        <a href="#services"><i data-lucide="search"></i> SEO &amp; Content</a>
+        <a href="#services"><i data-lucide="mouse-pointer-click"></i> Paid Ads</a>
+        <a href="#services"><i data-lucide="chart-column"></i> Analytics &amp; Reporting</a>
+      </div>
+    </div>
+
     <a href="#pricing" class="mobile-link">Pricing <i data-lucide="arrow-up-right"></i></a>
+
+    <!-- Mobile Resources Dropdown -->
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-toggle" id="mobileResourcesToggle">
+        Resources <i data-lucide="chevron-down"></i>
+      </div>
+      <div class="mobile-dropdown-content" id="mobileResourcesContent">
+        <a href="blog.html"><i data-lucide="pen-line"></i> Blog</a>
+        <a href="#case-studies"><i data-lucide="briefcase"></i> Case Studies</a>
+        <a href="#video"><i data-lucide="video"></i> Videos</a>
+      </div>
+    </div>
+
     <a href="#testimonials" class="mobile-link">Testimonials <i data-lucide="arrow-up-right"></i></a>
+    <a href="#about" class="mobile-link">About <i data-lucide="arrow-up-right"></i></a>
+
+    <!-- Mobile Theme Toggle -->
+    <div class="mobile-theme-toggle">
+      <span id="mobileThemeText">🌙 Dark Mode</span>
+      <button class="mobile-theme-btn" id="mobileThemeToggle">
+        <i data-lucide="moon" id="mobileThemeIcon"></i>
+      </button>
+    </div>
+
     <a href="https://wa.me/8801636007533" target="_blank" class="btn btn-red">Contact Me <i data-lucide="send"></i></a>
   </div>
 
+  <!-- ==================== MAIN CONTENT ==================== -->
   <main>
-    <!-- ==================== HERO SECTION ==================== -->
+
+    <!-- ==================== HERO ==================== -->
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <!-- Left: copy -->
         <div>
           <span class="hero-badge reveal"><span class="dot"></span> Available for New Projects</span>
           <h1 class="reveal" style="--d:.1s">I Help Brands Turn <span class="accent">Clicks</span> Into <span class="accent">Customers</span>.</h1>
           <p class="hero-sub reveal" style="--d:.2s">
-            Hi, I'm <strong>Kefayet Ullah Arif</strong> — a freelance digital marketing specialist helping
-            ambitious brands grow with scroll-stopping social content, search-first SEO and paid
-            campaigns that actually pay for themselves.
-          </p>
+  I'm <strong>Kefayet Ullah Arif</strong> — a digital marketing specialist obsessed with one thing: 
+  making your marketing budget the best investment you make. Social, SEO, or paid ads — I deliver results.
+</p>
           <div class="hero-cta reveal" style="--d:.3s">
-            <a href="#results" class="btn btn-red">View My Work <i data-lucide="arrow-up-right"></i></a>
+            <a href="https://wa.me/8801636007533" target="_blank" class="btn btn-red" >Book Call <i data-lucide="arrow-up-right"></i></a>
             <a href="#services" class="btn btn-ghost">See Services <i data-lucide="arrow-right"></i></a>
           </div>
-          <!-- Mini trust row with overlapping client avatars -->
           <div class="hero-trust reveal" style="--d:.4s">
             <div class="avatar-stack">
               <img src="https://images.pexels.com/photos/6497114/pexels-photo-6497114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Client" />
@@ -1057,24 +176,20 @@ img {
               <img src="https://images.pexels.com/photos/33815738/pexels-photo-33815738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Client" />
               <img src="https://images.pexels.com/photos/5649997/pexels-photo-5649997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Client" />
             </div>
-            <p>Trusted by <b>20+ brands</b><br />across 12 countries</p>
+            <p>Trusted by <b>12+ brands</b><br />across 7 countries</p>
           </div>
         </div>
-
-        <!-- Right: professional photo card — REPLACE PHOTO with your portrait URL -->
         <div class="hero-visual reveal" style="--d:.25s">
           <div class="halo" aria-hidden="true"></div>
           <figure class="hero-photo">
             <img src="assets/Profile.jpeg" alt="Professional portrait of Kefayet Ullah Arif" />
           </figure>
-          <!-- Floating proof chips -->
-          <!-- <div class="chip chip-top"><i data-lucide="trending-up"></i><div>+214% Avg. ROI<small>across client campaigns</small></div></div> -->
           <div class="chip chip-bottom"><i data-lucide="badge-check"></i><div>Certified Expert<small>Meta · Google · TikTok Ads</small></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== STATS BAR ==================== -->
+    <!-- ==================== STATS ==================== -->
     <div class="container">
       <div class="stats-bar reveal">
         <div class="stat-item">
@@ -1092,12 +207,8 @@ img {
       </div>
     </div>
 
-    <!-- ==================== SERVICES SECTION ==================== -->
-
+    <!-- ==================== SERVICES ==================== -->
     <section class="section services" id="services">
-      <div class="ambient"></div>
-<div class="noise"></div>
-      <div class="halo" aria-hidden="true"></div>
       <div class="container">
         <div class="section-head reveal">
           <span class="tag">My Services</span>
@@ -1105,39 +216,109 @@ img {
           <p>Pick a single service or combine them into a full-funnel growth engine — every engagement is tailored to your goals.</p>
         </div>
         <div class="grid-4">
-          <!-- SERVICE CARD 1 -->
+
+          <!-- Service 1: Social Media -->
           <article class="card reveal" style="--d:0s">
             <span class="icon-hex"><i data-lucide="megaphone"></i></span>
             <h3>Social Media Marketing</h3>
             <p>Content strategy, community management and growth campaigns that turn followers into loyal customers.</p>
-            <a href="#pricing" class="card-link">Explore service <i data-lucide="arrow-right"></i></a>
+            <a href="#" class="card-link service-trigger" data-service="social">Explore service <i data-lucide="arrow-right"></i></a>
           </article>
-          <!-- SERVICE CARD 2 -->
+
+          <!-- Service 2: SEO -->
           <article class="card reveal" style="--d:.1s">
             <span class="icon-hex"><i data-lucide="search"></i></span>
             <h3>SEO &amp; Content</h3>
             <p>Keyword research, on-page optimization and content that climbs the rankings — and actually converts.</p>
-            <a href="#pricing" class="card-link">Explore service <i data-lucide="arrow-right"></i></a>
+            <a href="#" class="card-link service-trigger" data-service="seo">Explore service <i data-lucide="arrow-right"></i></a>
           </article>
-          <!-- SERVICE CARD 3 -->
+
+          <!-- Service 3: Paid Ads -->
           <article class="card reveal" style="--d:.2s">
             <span class="icon-hex"><i data-lucide="mouse-pointer-click"></i></span>
             <h3>Paid Ads</h3>
             <p>Meta, Google and TikTok campaigns engineered for return on ad spend — not just impressions.</p>
-            <a href="#pricing" class="card-link">Explore service <i data-lucide="arrow-right"></i></a>
+            <a href="#" class="card-link service-trigger" data-service="ads">Explore service <i data-lucide="arrow-right"></i></a>
           </article>
-          <!-- SERVICE CARD 4 -->
+
+          <!-- Service 4: Analytics -->
           <article class="card reveal" style="--d:.3s">
             <span class="icon-hex"><i data-lucide="chart-column"></i></span>
             <h3>Analytics &amp; Reporting</h3>
             <p>Clean dashboards and honest monthly reports, so you always know what's working — and why.</p>
-            <a href="#pricing" class="card-link">Explore service <i data-lucide="arrow-right"></i></a>
+            <a href="#" class="card-link service-trigger" data-service="analytics">Explore service <i data-lucide="arrow-right"></i></a>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- ==================== PROCESS SECTION ==================== -->
+    <!-- ==================== CASE STUDIES ==================== -->
+    <section class="section case-studies" id="case-studies">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">Case Studies</span>
+          <h2>Real Results From <em>Real Campaigns</em></h2>
+          <p>Numbers don't lie — here's what happens when strategy meets execution.</p>
+        </div>
+
+        <div class="case-grid">
+          <article class="card case-card reveal" style="--d:0s">
+            <div class="case-tag">📈 +214% ROI</div>
+            <div class="case-content">
+              <h3>Bloom &amp; Co. — E-commerce</h3>
+              <p class="case-meta">90-day campaign · Meta Ads + Email Marketing</p>
+              <div class="case-stats">
+                <span><b>214%</b> ROI</span>
+                <span><b>4.2x</b> ROAS</span>
+                <span><b>67%</b> Increase in Sales</span>
+              </div>
+              <blockquote class="case-quote">"Kefayet doubled our return on ad spend in under 90 days. Best hire we made this year."</blockquote>
+              <p class="case-client">— Amara J., Founder, Bloom &amp; Co.</p>
+              <a href="#" class="btn btn-ghost case-btn">Read Full Case Study <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card case-card reveal" style="--d:.12s">
+            <div class="case-tag">📈 +156% Traffic</div>
+            <div class="case-content">
+              <h3>FitFuel — Health Startup</h3>
+              <p class="case-meta">6-month campaign · SEO + Content Marketing</p>
+              <div class="case-stats">
+                <span><b>156%</b> Organic Traffic</span>
+                <span><b>#1</b> Position</span>
+                <span><b>89%</b> Lead Growth</span>
+              </div>
+              <blockquote class="case-quote">"Our SEO went from page four to position one for our money keywords. Organic leads now cover what we used to spend on ads."</blockquote>
+              <p class="case-client">— David Osei, CEO, FitFuel</p>
+              <a href="#" class="btn btn-ghost case-btn">Read Full Case Study <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card case-card reveal" style="--d:.24s">
+            <div class="case-tag">📈 +63% Bookings</div>
+            <div class="case-content">
+              <h3>Carter's Coffee — Local Business</h3>
+              <p class="case-meta">3-month campaign · Local SEO + Social Media</p>
+              <div class="case-stats">
+                <span><b>63%</b> Bookings</span>
+                <span><b>3x</b> Reach</span>
+                <span><b>142%</b> Engagement</span>
+              </div>
+              <blockquote class="case-quote">"Kefayet gave me one clear plan, executed it, and my bookings jumped 63% in a quarter."</blockquote>
+              <p class="case-client">— James Carter, Owner, Carter's Coffee</p>
+              <a href="#" class="btn btn-ghost case-btn">Read Full Case Study <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="case-cta reveal">
+          <a href="https://wa.me/8801636007533" class="btn btn-red" target="_blank">Want Results Like These? <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROCESS ==================== -->
     <section class="section process" id="process">
       <div class="halo" aria-hidden="true"></div>
       <div class="container">
@@ -1147,30 +328,26 @@ img {
           <p>A battle-tested four-step workflow that keeps projects fast, transparent and focused on results.</p>
         </div>
         <div class="grid-4">
-          <!-- STEP 01 -->
           <article class="card step-card reveal" style="--d:0s">
-            <div class="step-num">Step 1 </div>
+            <div class="step-num">Step 1</div>
             <span class="icon-hex"><i data-lucide="compass"></i></span>
             <h3>Discovery</h3>
             <p>We start with a deep-dive call and audit of your brand, audience, competitors and current funnel.</p>
           </article>
-          <!-- STEP 02 -->
           <article class="card step-card reveal" style="--d:.1s">
-            <div class="step-num">Step 2 </div>
+            <div class="step-num">Step 2</div>
             <span class="icon-hex"><i data-lucide="lightbulb"></i></span>
             <h3>Strategy</h3>
             <p>You get a custom roadmap: channels, messaging, budgets and KPIs — signed off before we spend a cent.</p>
           </article>
-          <!-- STEP 03 -->
           <article class="card step-card reveal" style="--d:.2s">
-            <div class="step-num">Step 3 </div>
+            <div class="step-num">Step 3</div>
             <span class="icon-hex"><i data-lucide="rocket"></i></span>
             <h3>Execution</h3>
             <p>Campaigns, content and creatives go live. I test fast, iterate weekly and kill what doesn't perform.</p>
           </article>
-          <!-- STEP 04 -->
           <article class="card step-card reveal" style="--d:.3s">
-            <div class="step-num">Step 4 </div>
+            <div class="step-num">Step 4</div>
             <span class="icon-hex"><i data-lucide="package-check"></i></span>
             <h3>Delivery</h3>
             <p>Clear monthly reports plus a scale plan: double down on winners and keep the momentum compounding.</p>
@@ -1183,10 +360,41 @@ img {
       </div>
     </section>
 
-    <!-- ==================== ABOUT SECTION ==================== -->
+    <!-- ==================== VIDEO INTRODUCTION ==================== -->
+    <section class="section video-section" id="video">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">🎬 Meet Me</span>
+          <h2>Watch My <em>Introduction</em></h2>
+          <p>Get to know me, my process, and how I can help your brand grow — in under 2 minutes.</p>
+        </div>
+
+        <div class="video-wrapper reveal">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" 
+              title="Kefayet Ullah Arif - Digital Marketing Specialist Introduction"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-meta">
+            <div class="video-stats">
+              <span><i data-lucide="eye"></i> 2.4K+ Views</span>
+              <span><i data-lucide="thumbs-up"></i> 94% Like Rate</span>
+              <span><i data-lucide="clock"></i> 1:45 min</span>
+            </div>
+            <p class="video-desc">"I believe in marketing that actually works — not just pretty reports. Watch this quick intro to see if we're a good fit."</p>
+            <a href="https://www.youtube.com/@KefayetUllah33" target="_blank" class="btn btn-ghost">Subscribe to My Channel <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
     <section class="section about" id="about">
       <div class="container about-grid">
-        <!-- Left: photo — REPLACE PHOTO with your second portrait URL -->
         <div class="about-visual reveal">
           <div class="halo" aria-hidden="true"></div>
           <figure class="about-photo">
@@ -1194,7 +402,6 @@ img {
           </figure>
           <div class="exp-chip"><b>3+</b><small>Years of<br>Experience</small></div>
         </div>
-        <!-- Right: bio -->
         <div class="about-copy">
           <div class="section-head left reveal">
             <span class="tag">About Me</span>
@@ -1203,42 +410,21 @@ img {
           <p class="reveal" style="--d:.1s"><strong>I'm a digital marketing specialist based in Dhaka</strong> with over 3+ years of hands-on experience helping startups, e-commerce brands and local businesses grow their revenue online.</p>
           <p class="reveal" style="--d:.18s">I don't do vanity metrics. Every campaign I run is built around one question: <strong>does this move the bottom line?</strong> From thumb-stopping social content to conversion-obsessed ad funnels, my job is to make your marketing budget the best investment you make.</p>
           <p class="reveal" style="--d:.26s">When I'm not deep in ad dashboards, you'll find me analyzing consumer psychology, testing new AI tools, or hunting the perfect espresso.</p>
-          <!-- Social links — replace # with your real profile URLs -->
           <div class="about-socials reveal" style="--d:.34s">
             <a href="https://www.facebook.com/kefayetullaharif" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.linkedin.com/in/kefayet-ullah107/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.instagram.com/kefusssh_/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.youtube.com/@KefayetUllah33" target="_blank" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           </div>
-          <div class="about-cta reveal" style="--d:.42s"> 
-
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/8801636007533" 
-       class="btn btn-red" 
-       target="_blank">
-
-        Let's Work Together 
-        <i data-lucide="arrow-up-right"></i>
-
-    </a>
-
-
-    <!-- Download CV Button -->
-    <a href="assets/CV Kefayet Ullah.pdf" 
-       class="btn btn-ghost" 
-       download>
-
-        <i data-lucide="download"></i> 
-        Download CV
-
-    </a>
-
-</div>
+          <div class="about-cta reveal" style="--d:.42s">
+            <a href="https://wa.me/8801636007533" class="btn btn-red" target="_blank">Let's Work Together <i data-lucide="arrow-up-right"></i></a>
+            <a href="assets/CV Kefayet Ullah.pdf" class="btn btn-ghost" download><i data-lucide="download"></i> Download CV</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== NUMBERS / STATS SECTION (animated counters) ==================== -->
+    <!-- ==================== NUMBERS ==================== -->
     <section class="section" id="results">
       <div class="container">
         <div class="section-head reveal">
@@ -1247,31 +433,27 @@ img {
           <p>Real outcomes from real campaigns — no fluff, just the scoreboard.</p>
         </div>
         <div class="counters">
-          <!-- COUNTER 1: edit data-target + suffix -->
           <div class="counter reveal" style="--d:0s">
-            <b><span class="count-num" data-target="150" data-suffix="">0</span><span class="plus">+</span></b>
+            <b><span class="count-num" data-target="42" data-suffix="">0</span><span class="plus">+</span></b>
             <span>Projects Delivered</span>
           </div>
-          <!-- COUNTER 2 -->
-          <div class="counter reveal" style="--d:.1s">
-            <b><span class="count-num" data-target="6" data-suffix="">0</span><span class="plus">+</span></b>
-            <span>Years of Experience</span>
+          <div class="counter reveal" style="--d:.3s">
+            <b><span class="count-num" data-target="65" data-suffix="">0</span><span class="plus">+</span></b>
+            <span>Campaigns Managed</span>
           </div>
-          <!-- COUNTER 3 -->
           <div class="counter reveal" style="--d:.2s">
             <b><span class="count-num" data-target="98" data-suffix="">0</span><span class="plus">%</span></b>
             <span>Happy Clients</span>
           </div>
-          <!-- COUNTER 4 -->
-          <div class="counter reveal" style="--d:.3s">
-            <b><span class="count-num" data-target="340" data-suffix="">0</span><span class="plus">+</span></b>
-            <span>Campaigns Managed</span>
+          <div class="counter reveal" style="--d:.1s">
+            <b><span class="count-num" data-target="3" data-suffix="">0</span><span class="plus">+</span></b>
+            <span>Years of Experience</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== PRICING SECTION ==================== -->
+    <!-- ==================== PRICING ==================== -->
     <section class="section pricing" id="pricing">
       <div class="container">
         <div class="section-head reveal">
@@ -1280,9 +462,8 @@ img {
           <p>No hidden fees, no lock-in contracts. Start small, scale when you see the numbers.</p>
         </div>
         <div class="pricing-grid">
-          <!-- PRICE CARD 1 -->
           <article class="card price-card reveal" style="--d:0s">
-            <h3>Social Boost</h3>
+            <h3>Social Growth</h3>
             <p class="for">Perfect for getting your brand socials consistent and alive.</p>
             <div class="price">
               <small>Starting from</small>
@@ -1295,16 +476,12 @@ img {
               <li><i data-lucide="check"></i> Hashtag &amp; trend research</li>
               <li><i data-lucide="check"></i> Monthly performance report</li>
             </ul>
-            <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20the%20Social%20Boost%20plan."
-class="btn btn-ghost"
-target="_blank">
-Get Started
-</a>
+            <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20the%20Social%20Boost%20plan." class="btn btn-ghost" target="_blank">Get Started</a>
           </article>
-          <!-- PRICE CARD 2 (featured) -->
+
           <article class="card price-card featured reveal" style="--d:.12s">
             <span class="popular-badge">Most Popular</span>
-            <h3>Growth Engine</h3>
+            <h3>Performance Growth</h3>
             <p class="for">For brands ready to turn content and ads into revenue.</p>
             <div class="price">
               <small>Starting from</small>
@@ -1317,15 +494,11 @@ Get Started
               <li><i data-lucide="check"></i> Ad spend managed (up to $3k)</li>
               <li><i data-lucide="check"></i> Bi-weekly strategy calls</li>
             </ul>
-            <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20the%20Growth%20Engine%20plan."
-class="btn btn-red"
-target="_blank">
-Get Started
-</a>
+            <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20the%20Growth%20Engine%20plan." class="btn btn-red" target="_blank">Get Started</a>
           </article>
-          <!-- PRICE CARD 3 -->
+
           <article class="card price-card reveal" style="--d:.24s">
-            <h3>Full-Funnel Partner</h3>
+            <h3>Full Funnel System</h3>
             <p class="for">Your outsourced growth department, end to end.</p>
             <div class="price">
               <small>Starting from</small>
@@ -1338,18 +511,14 @@ Get Started
               <li><i data-lucide="check"></i> Landing page CRO</li>
               <li><i data-lucide="check"></i> Slack access + weekly calls</li>
             </ul>
-            <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20the%20Full-Funnel%20Partner%20plan."
-class="btn btn-ghost"
-target="_blank">
-Get Started
-</a>
+            <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20the%20Full-Funnel%20Partner%20plan." class="btn btn-ghost" target="_blank">Get Started</a>
           </article>
         </div>
         <p class="pricing-note reveal"><i data-lucide="shield-check"></i> All plans are month-to-month — cancel anytime. Custom scope? <a href="https://wa.me/8801636007533" target="_blank" style="color:var(--red-accent); font-weight:600">Let's talk.</a></p>
       </div>
     </section>
 
-    <!-- ==================== TESTIMONIALS SECTION ==================== -->
+    <!-- ==================== TESTIMONIALS ==================== -->
     <section class="section testimonials" id="testimonials">
       <div class="container">
         <div class="section-head reveal">
@@ -1358,7 +527,6 @@ Get Started
           <p>A few kind words from the founders and teams I've grown with.</p>
         </div>
         <div class="testimonial-grid" id="testimonialGrid">
-          <!-- REVIEW 1 -->
           <article class="card review-card reveal" style="--d:0s">
             <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
             <blockquote>"Kefayet doubled our return on ad spend in under 90 days. The weekly reports make it so easy to see exactly where every dollar goes. Best hire we made this year."</blockquote>
@@ -1367,7 +535,7 @@ Get Started
               <div><b>Amara J.</b><small>Founder, Bloom &amp; Co. — E-commerce</small></div>
             </div>
           </article>
-          <!-- REVIEW 2 -->
+
           <article class="card review-card reveal" style="--d:.1s">
             <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
             <blockquote>"Our SEO went from page four to position one for our money keywords. Organic leads now cover what we used to spend on ads — and then some."</blockquote>
@@ -1376,7 +544,7 @@ Get Started
               <div><b>David Osei</b><small>CEO, FitFuel — Health Startup</small></div>
             </div>
           </article>
-          <!-- REVIEW 3 -->
+
           <article class="card review-card reveal" style="--d:.2s">
             <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
             <blockquote>"Working with Kefayet feels like having an in-house growth team. Strategy is sharp, communication is instant, and the numbers keep trending up. Highly recommended."</blockquote>
@@ -1385,7 +553,7 @@ Get Started
               <div><b>Sarah Mitchell</b><small>Marketing Lead, Nordhaus — SaaS</small></div>
             </div>
           </article>
-          <!-- REVIEW 4 -->
+
           <article class="card review-card reveal" style="--d:.3s">
             <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
             <blockquote>"As a small business owner I was drowning in 'marketing advice.' Kefayet gave me one clear plan, executed it, and my bookings jumped 63% in a quarter."</blockquote>
@@ -1394,7 +562,7 @@ Get Started
               <div><b>James Carter</b><small>Owner, Carter's Coffee — Local Business</small></div>
             </div>
           </article>
-          <!-- HIDDEN BONUS REVIEWS (revealed by "View More" button) -->
+
           <article class="card review-card extra-review">
             <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
             <blockquote>"From ad creative to email flows, everything was handled. We hit our first $50k month three weeks after launch. Enough said."</blockquote>
@@ -1403,6 +571,7 @@ Get Started
               <div><b>Elena Petrova</b><small>Founder, Luna Skincare — D2C Brand</small></div>
             </div>
           </article>
+
           <article class="card review-card extra-review">
             <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
             <blockquote>"Clear strategy, zero fluff, and a dashboard my whole team actually uses. Kefayet pays for themselves many times over."</blockquote>
@@ -1417,6 +586,69 @@ Get Started
         </div>
       </div>
     </section>
+
+    <!-- ==================== BLOG ==================== -->
+    <section class="section blog-section" id="blog">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag">✍️ Insights</span>
+          <h2>Latest <em>Marketing Tips</em></h2>
+          <p>Actionable strategies and industry insights to help you grow your business.</p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Blog 1 -->
+          <article class="card blog-card reveal" style="--d:0s">
+            <div class="blog-img">📊</div>
+            <div class="blog-content">
+              <span class="blog-category">SEO</span>
+              <h3>5 SEO Tips That Actually Work in 2025</h3>
+              <p class="blog-excerpt">Stop chasing algorithms. Here's what's actually moving the needle for organic traffic right now.</p>
+              <div class="blog-meta">
+                <span><i data-lucide="calendar"></i> Dec 15, 2024</span>
+                <span><i data-lucide="clock"></i> 4 min read</span>
+              </div>
+              <a href="blog-post-1.html" class="blog-link">Read Full Article <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Blog 2 -->
+          <article class="card blog-card reveal" style="--d:.12s">
+            <div class="blog-img">📱</div>
+            <div class="blog-content">
+              <span class="blog-category">Social Media</span>
+              <h3>Why TikTok Ads Are The Future of D2C</h3>
+              <p class="blog-excerpt">TikTok isn't just for Gen Z anymore. Here's how D2C brands are scaling with TikTok Ads.</p>
+              <div class="blog-meta">
+                <span><i data-lucide="calendar"></i> Dec 10, 2024</span>
+                <span><i data-lucide="clock"></i> 3 min read</span>
+              </div>
+              <a href="blog-post-2.html" class="blog-link">Read Full Article <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Blog 3 -->
+          <article class="card blog-card reveal" style="--d:.24s">
+            <div class="blog-img">💰</div>
+            <div class="blog-content">
+              <span class="blog-category">Paid Ads</span>
+              <h3>How to Get 4x ROAS from Meta Ads</h3>
+              <p class="blog-excerpt">The exact framework I use to consistently achieve 4x+ ROAS for e-commerce brands.</p>
+              <div class="blog-meta">
+                <span><i data-lucide="calendar"></i> Dec 5, 2024</span>
+                <span><i data-lucide="clock"></i> 5 min read</span>
+              </div>
+              <a href="blog-post-3.html" class="blog-link">Read Full Article <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="blog-cta reveal">
+          <a href="blog.html" class="btn btn-ghost">View All Insights <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ==================== FOOTER ==================== -->
@@ -1424,7 +656,6 @@ Get Started
     <div class="halo" aria-hidden="true"></div>
     <div class="container">
       <div class="footer-grid">
-        <!-- Brand column -->
         <div class="footer-brand reveal">
           <a href="#home" class="nav-logo">
             <img src="assets/Profile.jpeg" alt="Kefayet Ullah Arif" />
@@ -1432,26 +663,26 @@ Get Started
           </a>
           <p>Freelance digital marketer helping ambitious brands grow through social media, search and paid media — one measurable win at a time.</p>
         </div>
-        <!-- Contact column -->
+
         <div class="footer-col reveal" style="--d:.1s">
           <h4>Contact</h4>
           <ul>
-            <li><i data-lucide="mail"></i><a href="mailto:hello@[YOURDOMAIN].com">kefayet107@gmail.com</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:kefayet107@gmail.com">kefayet107@gmail.com</a></li>
             <li><i data-lucide="phone"></i><a href="tel:+8801636007533">+880 1636 007533</a></li>
             <li><i data-lucide="map-pin"></i><span>Dhaka, Bangladesh — Remote Worldwide</span></li>
           </ul>
         </div>
-        <!-- Social column — replace # with your real URLs -->
+
         <div class="footer-col reveal" style="--d:.2s">
           <h4>Follow Me</h4>
-          <div class="about-socials reveal" style="--d:.34s">
+          <div class="about-socials">
             <a href="https://www.facebook.com/kefayetullaharif" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.linkedin.com/in/kefayet-ullah107/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.instagram.com/kefusssh_/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.youtube.com/@KefayetUllah33" target="_blank" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
-        <!-- Trust / payments column -->
+
         <div class="footer-col reveal" style="--d:.3s">
           <h4>Payments &amp; Trust</h4>
           <div class="pay-row">
@@ -1466,7 +697,7 @@ Get Started
           </div>
         </div>
       </div>
-      <!-- Bottom bar -->
+
       <div class="footer-bottom">
         <p>© <span id="year">2026</span> Kefayet Ullah Arif. All rights reserved. — kefayet107@gmail.com</p>
         <a href="#home" class="to-top">Back to top <i data-lucide="arrow-up"></i></a>
@@ -1474,7 +705,7 @@ Get Started
     </div>
   </footer>
 
-  <!-- ==================== SOCIAL PROOF TOAST (auto-rotating, bottom-left) ==================== -->
+  <!-- ==================== SOCIAL PROOF TOAST ==================== -->
   <div class="toast" id="toast" role="status" aria-live="polite">
     <img id="toastAvatar" src="https://images.pexels.com/photos/6497114/pexels-photo-6497114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
     <div>
@@ -1484,113 +715,151 @@ Get Started
     <span class="eye"><i data-lucide="eye"></i></span>
   </div>
 
-  <!-- Lucide icons via CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- ==================== SERVICE DETAILS MODAL ==================== -->
+  <div class="modal-overlay" id="serviceModal">
+    <div class="modal-container">
+      <button class="modal-close" id="modalClose">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
 
-  <!-- ==================== ALL JAVASCRIPT (vanilla, no libraries) ==================== -->
-  <script>
-    /* Render Lucide icons */
-    lucide.createIcons();
+<!-- ==================== SERVICE DETAILS TEMPLATES ==================== -->
 
-    /* ---------- Auto-update footer year ---------- */
-    document.getElementById('year').textContent = new Date().getFullYear();
+<!-- 1. Social Media Marketing -->
+<script type="text/template" id="service-social">
+  <div class="modal-icon">📱</div>
+  <h2>Social Media Marketing</h2>
+  <p class="modal-sub">I help brands build a loyal community through strategic social media — not just likes, but real connections that drive business.</p>
+  <div class="modal-divider"></div>
+  <h3>What I Do:</h3>
+  <ul class="modal-list">
+    <li><i data-lucide="check"></i> Content strategy &amp; monthly planning</li>
+    <li><i data-lucide="check"></i> Daily community management &amp; engagement</li>
+    <li><i data-lucide="check"></i> Strategic growth campaigns</li>
+    <li><i data-lucide="check"></i> Influencer &amp; partnership outreach</li>
+    <li><i data-lucide="check"></i> Analytics &amp; transparent monthly reporting</li>
+  </ul>
+  <div class="modal-divider"></div>
+  <h3>What You Can Expect:</h3>
+  <div class="modal-stats">
+    <span><b>2-3x</b> More Engagement</span>
+    <span><b>Steady</b> Follower Growth</span>
+    <span><b>Trusted</b> Brand Voice</span>
+  </div>
+  <div class="modal-divider"></div>
+  <div class="modal-pricing">
+    <span class="price-label">Starting from</span>
+    <span class="price-amount">$290</span>
+    <span class="price-period">/ month</span>
+  </div>
+  <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20Social%20Media%20Marketing" class="btn btn-red modal-cta" target="_blank">
+    Book a Free Consultation <i data-lucide="arrow-right"></i>
+  </a>
+</script>
 
-    /* ---------- Navbar: glass intensifies + progress bar on scroll ---------- */
-    const nav = document.getElementById('siteNav');
-    const progressBar = document.getElementById('progressBar');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 30);
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
-    }, { passive: true });
+<!-- 2. SEO & Content -->
+<script type="text/template" id="service-seo">
+  <div class="modal-icon">🔍</div>
+  <h2>SEO &amp; Content</h2>
+  <p class="modal-sub">I help your website rank higher, attract the right audience, and turn organic traffic into paying customers — no black-hat tricks, just proven SEO strategies.</p>
+  <div class="modal-divider"></div>
+  <h3>What I Do:</h3>
+  <ul class="modal-list">
+    <li><i data-lucide="check"></i> In-depth keyword research &amp; strategy</li>
+    <li><i data-lucide="check"></i> On-page SEO optimization (titles, meta, structure)</li>
+    <li><i data-lucide="check"></i> Technical SEO audit &amp; fixes</li>
+    <li><i data-lucide="check"></i> High-quality content creation &amp; optimization</li>
+    <li><i data-lucide="check"></i> Link building &amp; authority development</li>
+    <li><i data-lucide="check"></i> Monthly ranking &amp; traffic reports</li>
+  </ul>
+  <div class="modal-divider"></div>
+  <h3>What You Can Expect:</h3>
+  <div class="modal-stats">
+    <span><b>2-3x</b> Organic Traffic</span>
+    <span><b>Top 10</b> Rankings</span>
+    <span><b>Quality</b> Leads</span>
+  </div>
+  <div class="modal-divider"></div>
+  <div class="modal-pricing">
+    <span class="price-label">Starting from</span>
+    <span class="price-amount">$290</span>
+    <span class="price-period">/ month</span>
+  </div>
+  <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20SEO%20and%20Content" class="btn btn-red modal-cta" target="_blank">
+    Book a Free Consultation <i data-lucide="arrow-right"></i>
+  </a>
+</script>
 
-    /* ---------- Mobile menu toggle ---------- */
-    const burger = document.getElementById('burgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const setMenu = (open) => {
-      burger.classList.toggle('open', open);
-      mobileMenu.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    };
-    burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-    window.addEventListener('resize', () => { if (window.innerWidth > 940) setMenu(false); });
+<!-- 3. Paid Ads -->
+<script type="text/template" id="service-ads">
+  <div class="modal-icon">💰</div>
+  <h2>Paid Ads</h2>
+  <p class="modal-sub">I manage your ad spend like it's my own money — building campaigns that generate real returns, not just impressions and clicks.</p>
+  <div class="modal-divider"></div>
+  <h3>What I Do:</h3>
+  <ul class="modal-list">
+    <li><i data-lucide="check"></i> Meta (Facebook &amp; Instagram) Ads</li>
+    <li><i data-lucide="check"></i> Google Search &amp; Shopping Ads</li>
+    <li><i data-lucide="check"></i> TikTok Ads &amp; Creative Strategy</li>
+    <li><i data-lucide="check"></i> A/B testing &amp; continuous optimization</li>
+    <li><i data-lucide="check"></i> Daily performance monitoring</li>
+    <li><i data-lucide="check"></i> Weekly transparent reporting</li>
+  </ul>
+  <div class="modal-divider"></div>
+  <h3>What You Can Expect:</h3>
+  <div class="modal-stats">
+    <span><b>3-4x</b> ROAS (Return on Ad Spend)</span>
+    <span><b>Lower</b> Cost Per Acquisition</span>
+    <span><b>Scalable</b> Campaigns</span>
+  </div>
+  <div class="modal-divider"></div>
+  <div class="modal-pricing">
+    <span class="price-label">Starting from</span>
+    <span class="price-amount">$290</span>
+    <span class="price-period">/ month</span>
+  </div>
+  <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20Paid%20Ads" class="btn btn-red modal-cta" target="_blank">
+    Book a Free Consultation <i data-lucide="arrow-right"></i>
+  </a>
+</script>
 
-    /* ---------- Scroll-reveal: fade/slide-in via Intersection Observer ---------- */
-    const revealObs = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+<!-- 4. Analytics & Reporting -->
+<script type="text/template" id="service-analytics">
+  <div class="modal-icon">📊</div>
+  <h2>Analytics &amp; Reporting</h2>
+  <p class="modal-sub">You can't improve what you don't measure. I set up clean tracking and give you honest reports — so you always know what's working and why.</p>
+  <div class="modal-divider"></div>
+  <h3>What I Do:</h3>
+  <ul class="modal-list">
+    <li><i data-lucide="check"></i> Google Analytics &amp; tracking setup</li>
+    <li><i data-lucide="check"></i> Custom dashboard creation</li>
+    <li><i data-lucide="check"></i> Conversion tracking &amp; goal setup</li>
+    <li><i data-lucide="check"></i> Monthly performance reports</li>
+    <li><i data-lucide="check"></i> Actionable insights &amp; recommendations</li>
+    <li><i data-lucide="check"></i> Competitor &amp; market analysis</li>
+  </ul>
+  <div class="modal-divider"></div>
+  <h3>What You Can Expect:</h3>
+  <div class="modal-stats">
+    <span><b>100%</b> Marketing Visibility</span>
+    <span><b>Data-Backed</b> Decisions</span>
+    <span><b>Clear</b> ROI Tracking</span>
+  </div>
+  <div class="modal-divider"></div>
+  <div class="modal-pricing">
+    <span class="price-label">Starting from</span>
+    <span class="price-amount">$290</span>
+    <span class="price-period">/ month</span>
+  </div>
+  <a href="https://wa.me/8801636007533?text=Hi,%20I%20am%20interested%20in%20Analytics%20and%20Reporting" class="btn btn-red modal-cta" target="_blank">
+    Book a Free Consultation <i data-lucide="arrow-right"></i>
+  </a>
+</script>
 
-    /* ---------- Active nav-link highlight (red dot follows scroll) ---------- */
-    const SECTION_IDS = ['home', 'services', 'process', 'about', 'pricing', 'testimonials'];
-    const allLinks = document.querySelectorAll('.nav-link, .mobile-link');
-    const setActive = (id) => allLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-    const activeObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    SECTION_IDS.forEach(id => { const s = document.getElementById(id); if (s) activeObs.observe(s); });
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
 
-    /* ---------- Animated counters ("Numbers" section) ---------- */
-    const easeOut = p => 1 - Math.pow(1 - p, 3);
-    const animateCount = (el) => {
-      const target = parseFloat(el.dataset.target), suffix = el.dataset.suffix || '', dur = 1800;
-      const start = performance.now();
-      const tick = (now) => {
-        const p = easeOut(Math.min((now - start) / dur, 1));
-        el.textContent = Math.round(target * p).toLocaleString() + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-    const counterObs = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); obs.unobserve(e.target); } });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.count-num').forEach(el => counterObs.observe(el));
-
-    /* ---------- Testimonials: "View More" toggle ---------- */
-    const moreBtn = document.getElementById('moreReviewsBtn');
-    const grid = document.getElementById('testimonialGrid');
-    moreBtn.addEventListener('click', () => {
-      const open = grid.classList.toggle('show-all');
-      moreBtn.innerHTML = open
-        ? 'Show Less <i data-lucide="arrow-right" style="transform:rotate(-90deg)"></i>'
-        : 'View More <i data-lucide="arrow-right" style="transform:rotate(90deg)"></i>';
-      lucide.createIcons();   /* re-render the new icon */
-    });
-
-    /* ---------- Social proof toast: rotates every few seconds ---------- */
-    const TOAST_AVATARS = [
-      'https://images.pexels.com/users/avatars/796614740/volkan-yilmaz-985.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2',
-      'https://images.pexels.com/users/avatars/349383308/james-906.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2',
-      'https://images.pexels.com/users/avatars/447505/diana-578.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2',
-      'https://images.pexels.com/users/avatars/2163573768/muhammad-amdad-hossain-453.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2', 'https://images.pexels.com/users/avatars/2018605242/lada-bilozor-393.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2', 'https://images.pexels.com/users/avatars/719873/boyan-minchev-169.jpeg?auto=compress&fit=crop&h=140&w=140&dpr=2'
-    ];
-    const TOAST_MSGS = [
-      { name: 'Volkan Y.',  action: 'just visited the website' },
-      { name: 'James.',  action: 'just booked a 15-min call' },
-      { name: 'Diana',    action: 'just viewed the pricing plans' },
-      { name: 'Muhammad A.', action: 'just left a 5-star review' },
-      { name: 'Lada Bilozor',  action: 'just downloaded the media kit' },
-      { name: 'BoyanMinchev',  action: 'just visited the website' }
-    ];
-    const toast = document.getElementById('toast');
-    const toastText = document.getElementById('toastText');
-    const toastAvatar = document.getElementById('toastAvatar');
-    let toastIndex = 0;
-    const cycleToast = () => {
-      const m = TOAST_MSGS[toastIndex % TOAST_MSGS.length];
-      toastAvatar.src = TOAST_AVATARS[toastIndex % TOAST_AVATARS.length];
-      toastText.innerHTML = '<b>' + m.name + '</b> ' + m.action;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 4200);   /* visible ~4s */
-      toastIndex++;
-      setTimeout(cycleToast, 15000 + Math.random() * 4000);      /* gap 15–19s */
-    };
-    setTimeout(cycleToast, 3500);   /* first appear shortly after page load */
-  </script>
 </body>
 </html>
